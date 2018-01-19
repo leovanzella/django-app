@@ -6,11 +6,14 @@
     </head>
     <body>
         <h1>Index</h1>
-        <ul>
-            {% for perfil in perfis %}
-            <li>{{perfil.nome}} / {{perfil.email}}</li>
-            {% endfor %}
-        </ul>
-        <p>Nenhum Perfil encontrado</p>
+        {% if perfis %}
+            <ul>
+                {% for perfil in perfis %}
+                <li>{{perfil.nome}} / {{perfil.email}}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum Perfil encontrado</p>
+        {% endif %}
     </body>
 </html>
