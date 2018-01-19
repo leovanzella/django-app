@@ -8,4 +8,4 @@ def exibir(request, perfil_id):
     perfil = Perfil()
     if(perfil_id == '1'):
         perfil = Perfil('Leonardo Vanzella', 'leovanzella@gmail.com', '777777', 'Oem')
-    return render(request, 'perfil.html')
+    return render(request, 'perfil.html', {'perfil' : perfil})
