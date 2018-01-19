@@ -5,6 +5,12 @@
         <title>Merkado</title>
     </head>
     <body>
-        <h1>Bem-vindo ao Merkado</h1>
+        <h1>Index</h1>
+        <ul>
+            {% for perfil in perfis %}
+            <li>{{perfil.nome}} / {{perfil.email}}</li>
+            {% endfor %}
+        </ul>
+        <p>Nenhum Perfil encontrado</p>
     </body>
 </html>
