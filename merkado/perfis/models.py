@@ -8,9 +8,9 @@ class Perfil(models.Model):
     nome_empresa = models.CharField(max_length=255, null=False)
 
     def convidar(self, perfil_convidado):
-        pass
+        Convite(solicitante=self, convidado=perfil_convidado).save()
 
 
 class Convite(models.Model):
-    solicitante = models.ForeignKey(Perfil)
-    convidado = models.ForeignKey(Perfil)
+    solicitante = models.ForeignKey(Perfil, on_delete=models.DO_NOTHING, related_name='convites_feitos')
+    convidado = models.ForeignKey(Perfil, on_delete=models.DO_NOTHING, related_name='convites_recebidos')
