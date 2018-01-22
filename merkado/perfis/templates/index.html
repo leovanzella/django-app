@@ -18,5 +18,25 @@
         {% endif %}
 
     </div>
+
+    <div class="panel panel-default">
+        {% if perfil_logado.convites_recebidos.count %}
+            <div class="panel-heading">
+                <strong>Convites aguardando aprovação</strong>
+            </div>
+            <ul class="list-group">
+                {% for convite in perfil_logado.convites_recebidos.all %}
+                    <li class="list-group-item">
+                            {{ convite.solicitante.nome }}
+                            <a href="#" class="pull-right">aceitar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="panel-body">
+                <p>Nenhum convite recebido :(</p>
+            </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
