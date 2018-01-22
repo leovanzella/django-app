@@ -5,7 +5,8 @@
         <title>merkato</title>
     </head>
     <body>
-         <h1>Detalhe Perfil</h1>
+         <h1>Detalhe Perfil: {{ perfil.nome }}</h1>
          nome: {{perfil.nome}}, email: {{perfil.email}}, telefone: {{perfil.telefone}}, empresa: {{perfil.nome_empresa}}
+         <a href="{% url 'convidar' perfil.id %}">convidar</a>
     </body>
 </html>
