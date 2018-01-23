@@ -20,9 +20,10 @@
     </div>
 
     <div class="panel panel-default">
-        {% if perfil_logado.convites_recebidos.count %}
+        {% with total_de_convites=perfil_logado.convites_recebidos.count %}
+        {% if total_de_convites %}
             <div class="panel-heading">
-                <strong>Você tem {{ perfil_logado.convites_recebidos.count }} convite{{ perfil_logado.convites_recebidos.count|pluralize }} aguardando aprovação</strong>
+                <strong>Você tem {{ total_de_convites }} convite{{ total_de_convites|pluralize }} aguardando aprovação</strong>
             </div>
             <ul class="list-group">
                 {% for convite in perfil_logado.convites_recebidos.all %}
@@ -37,6 +38,7 @@
                 <p>Nenhum convite recebido :(</p>
             </div>
         {% endif %}
+        {% endwith %}
     </div>
 </div>
 {% endblock %}
