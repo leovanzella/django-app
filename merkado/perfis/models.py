@@ -14,3 +14,6 @@ class Perfil(models.Model):
 class Convite(models.Model):
     solicitante = models.ForeignKey(Perfil, on_delete=models.DO_NOTHING, related_name='convites_feitos')
     convidado = models.ForeignKey(Perfil, on_delete=models.DO_NOTHING, related_name='convites_recebidos')
+
+    def aceitar(self):
+        pass
