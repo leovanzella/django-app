@@ -22,7 +22,7 @@
     <div class="panel panel-default">
         {% if perfil_logado.convites_recebidos.count %}
             <div class="panel-heading">
-                <strong>Convites aguardando aprovação</strong>
+                <strong>Você tem {{ perfil_logado.convites_recebidos.count }} convite{{ perfil_logado.convites_recebidos.count|pluralize }} aguardando aprovação</strong>
             </div>
             <ul class="list-group">
                 {% for convite in perfil_logado.convites_recebidos.all %}
