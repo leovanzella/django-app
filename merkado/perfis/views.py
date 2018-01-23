@@ -8,7 +8,9 @@ def index(request):
 def exibir(request, perfil_id):
     perfil = Perfil.objects.get(id=perfil_id)
     #perfil = Perfil.objects.filter(email__contains='Leo')  can search for other Leos
-    return render(request, 'perfil.html', {'perfil' : perfil, 'perfil_logado' : get_perfil_logado(request)})
+    perfil_logado = get_perfil_logado(request)
+    ja_eh_contato = perfil in perfil_logado.contatos.all()
+    return render(request, 'perfil.html', {'perfil' : perfil, 'perfil_logado' : get_perfil_logado(request), 'ja_eh_contato' : ja_eh_contato})
 
 def convidar(request, perfil_id):
     perfil_a_convidar = Perfil.objects.get(id=perfil_id)
