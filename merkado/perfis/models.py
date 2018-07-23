@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from .abtest import ABTest
 
 class Perfil(models.Model):
 
@@ -11,6 +12,13 @@ class Perfil(models.Model):
     contatos = models.ManyToManyField('self')
 
     usuario = models.OneToOneField(User, on_delete=models.DO_NOTHING, related_name='perfil')
+
+    # def save(self, **kwargs):
+    #     pass
+    #     # super(ABTest, self).save(**kwargs)
+    #     # ab_test = ABTest(True)
+    #     # ab_test.save()
+
 
     @property
     def email(self):
