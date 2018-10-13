@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
+
 class RegistrarUsuariosForm(forms.Form):
 
     nome = forms.CharField(required=True)
@@ -24,5 +25,7 @@ class RegistrarUsuariosForm(forms.Form):
         return valid
 
     def adiciona_erro(self, message):
-        errors = self._errors.setdefault(forms.forms.NON_FIELD_ERRORS, forms.utils.ErrorList())
+        errors = self._errors.setdefault(
+            forms.forms.NON_FIELD_ERRORS, forms.utils.ErrorList()
+        )
         errors.append(message)
