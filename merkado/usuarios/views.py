@@ -19,9 +19,16 @@ class RegistrarUsuarioView(View):
         if form.is_valid():
             dados_form = form.data
 
-            usuario = User.objects.create_user(dados_form['nome'], dados_form['email'], dados_form['senha'])
+            usuario = User.objects.create_user(
+                dados_form['nome'], dados_form['email'], dados_form['senha']
+            )
 
-            perfil = Perfil(nome=dados_form['nome'], telefone=dados_form['telefone'], nome_empresa=dados_form['nome_empresa'], usuario=usuario)
+            perfil = Perfil(
+                nome=dados_form['nome'],
+                telefone=dados_form['telefone'],
+                nome_empresa=dados_form['nome_empresa'],
+                usuario=usuario
+            )
 
             perfil.save()
 
